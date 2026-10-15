@@ -1,0 +1,180 @@
+{
+  "student": {
+    "student_id": "02627",
+    "split_seed": 3541,
+    "model_seed": 9038,
+    "v_ego": 14.0
+  },
+  "baseline": "IDM",
+  "decisions": {
+    "const-vel": {
+      "release": false,
+      "rules": {
+        "R1_replay_reproducible": {
+          "pass": true,
+          "detail": "rerun identical and refactor differs beyond tol in 0 segments",
+          "rule": "the replay tool itself is reproducible: re-run identical, refactor within tolerance"
+        },
+        "R2_closed_loop_logs": {
+          "pass": false,
+          "detail": "21.9 % (upper 23.4 %) vs baseline 0.0 % + 1.0 points",
+          "rule": "non-inferior to the IDM baseline on held-out logs: upper 95 % bound of the collision rate <= baseline rate + 1 point (worst seed)"
+        },
+        "R3_braking_slice": {
+          "pass": false,
+          "detail": "56.5 % (n=186, upper 63.4 %) vs baseline 0.0 % + 5 points",
+          "rule": "same on the slice where the lead brakes (fewer trajectories, so margin 5 points)"
+        },
+        "R4_scenario_grid": {
+          "pass": false,
+          "detail": "70.4 % vs baseline 0.0 % + 2.0 points",
+          "rule": "collision area on the cut-in grid that is physically avoidable <= baseline + 2 points (t_react = 0.6 s)"
+        },
+        "R5_seed_stability": {
+          "pass": true,
+          "detail": "21.9 .. 21.9 % over 1 run(s)",
+          "rule": "collision rate varies by <= 1 point across training seeds"
+        },
+        "R6_reactive_world": {
+          "pass": false,
+          "detail": "80.6 % of the grid vs baseline 10.2 %",
+          "rule": "collision area with a REACTIVE rear vehicle <= baseline + 2 points"
+        },
+        "R7_coverage": {
+          "pass": true,
+          "detail": "614 mined events, 2700 grid cells",
+          "rule": "enough scenarios were actually run: >= 100 mined braking events, >= 2000 grid cells"
+        }
+      }
+    },
+    "EgoMLP": {
+      "release": false,
+      "rules": {
+        "R1_replay_reproducible": {
+          "pass": true,
+          "detail": "rerun identical and refactor differs beyond tol in 0 segments",
+          "rule": "the replay tool itself is reproducible: re-run identical, refactor within tolerance"
+        },
+        "R2_closed_loop_logs": {
+          "pass": false,
+          "detail": "39.4 % (upper 41.2 %) vs baseline 0.0 % + 1.0 points",
+          "rule": "non-inferior to the IDM baseline on held-out logs: upper 95 % bound of the collision rate <= baseline rate + 1 point (worst seed)"
+        },
+        "R3_braking_slice": {
+          "pass": false,
+          "detail": "68.8 % (n=186, upper 75.0 %) vs baseline 0.0 % + 5 points",
+          "rule": "same on the slice where the lead brakes (fewer trajectories, so margin 5 points)"
+        },
+        "R4_scenario_grid": {
+          "pass": false,
+          "detail": "73.6 % vs baseline 0.0 % + 2.0 points",
+          "rule": "collision area on the cut-in grid that is physically avoidable <= baseline + 2 points (t_react = 0.6 s)"
+        },
+        "R5_seed_stability": {
+          "pass": false,
+          "detail": "19.9 .. 39.4 % over 5 run(s)",
+          "rule": "collision rate varies by <= 1 point across training seeds"
+        },
+        "R6_reactive_world": {
+          "pass": false,
+          "detail": "83.9 % of the grid vs baseline 10.2 %",
+          "rule": "collision area with a REACTIVE rear vehicle <= baseline + 2 points"
+        },
+        "R7_coverage": {
+          "pass": true,
+          "detail": "614 mined events, 2700 grid cells",
+          "rule": "enough scenarios were actually run: >= 100 mined braking events, >= 2000 grid cells"
+        }
+      }
+    },
+    "PercMLP": {
+      "release": false,
+      "rules": {
+        "R1_replay_reproducible": {
+          "pass": true,
+          "detail": "rerun identical and refactor differs beyond tol in 0 segments",
+          "rule": "the replay tool itself is reproducible: re-run identical, refactor within tolerance"
+        },
+        "R2_closed_loop_logs": {
+          "pass": false,
+          "detail": "7.8 % (upper 8.8 %) vs baseline 0.0 % + 1.0 points",
+          "rule": "non-inferior to the IDM baseline on held-out logs: upper 95 % bound of the collision rate <= baseline rate + 1 point (worst seed)"
+        },
+        "R3_braking_slice": {
+          "pass": false,
+          "detail": "23.1 % (n=186, upper 29.7 %) vs baseline 0.0 % + 5 points",
+          "rule": "same on the slice where the lead brakes (fewer trajectories, so margin 5 points)"
+        },
+        "R4_scenario_grid": {
+          "pass": false,
+          "detail": "37.4 % vs baseline 0.0 % + 2.0 points",
+          "rule": "collision area on the cut-in grid that is physically avoidable <= baseline + 2 points (t_react = 0.6 s)"
+        },
+        "R5_seed_stability": {
+          "pass": false,
+          "detail": "0.8 .. 7.8 % over 5 run(s)",
+          "rule": "collision rate varies by <= 1 point across training seeds"
+        },
+        "R6_reactive_world": {
+          "pass": false,
+          "detail": "47.6 % of the grid vs baseline 10.2 %",
+          "rule": "collision area with a REACTIVE rear vehicle <= baseline + 2 points"
+        },
+        "R7_coverage": {
+          "pass": true,
+          "detail": "614 mined events, 2700 grid cells",
+          "rule": "enough scenarios were actually run: >= 100 mined braking events, >= 2000 grid cells"
+        }
+      }
+    },
+    "PercMLP+": {
+      "release": true,
+      "rules": {
+        "R1_replay_reproducible": {
+          "pass": true,
+          "detail": "rerun identical and refactor differs beyond tol in 0 segments",
+          "rule": "the replay tool itself is reproducible: re-run identical, refactor within tolerance"
+        },
+        "R2_closed_loop_logs": {
+          "pass": true,
+          "detail": "0.3 % (upper 0.5 %) vs baseline 0.0 % + 1.0 points",
+          "rule": "non-inferior to the IDM baseline on held-out logs: upper 95 % bound of the collision rate <= baseline rate + 1 point (worst seed)"
+        },
+        "R3_braking_slice": {
+          "pass": true,
+          "detail": "0.5 % (n=186, upper 3.0 %) vs baseline 0.0 % + 5 points",
+          "rule": "same on the slice where the lead brakes (fewer trajectories, so margin 5 points)"
+        },
+        "R4_scenario_grid": {
+          "pass": true,
+          "detail": "0.2 % vs baseline 0.0 % + 2.0 points",
+          "rule": "collision area on the cut-in grid that is physically avoidable <= baseline + 2 points (t_react = 0.6 s)"
+        },
+        "R5_seed_stability": {
+          "pass": true,
+          "detail": "0.2 .. 0.3 % over 5 run(s)",
+          "rule": "collision rate varies by <= 1 point across training seeds"
+        },
+        "R6_reactive_world": {
+          "pass": true,
+          "detail": "10.4 % of the grid vs baseline 10.2 %",
+          "rule": "collision area with a REACTIVE rear vehicle <= baseline + 2 points"
+        },
+        "R7_coverage": {
+          "pass": true,
+          "detail": "614 mined events, 2700 grid cells",
+          "rule": "enough scenarios were actually run: >= 100 mined braking events, >= 2000 grid cells"
+        }
+      }
+    }
+  },
+  "rules": {
+    "R1_replay_reproducible": "the replay tool itself is reproducible: re-run identical, refactor within tolerance",
+    "R2_closed_loop_logs": "non-inferior to the IDM baseline on held-out logs: upper 95 % bound of the collision rate <= baseline rate + 1 point (worst seed)",
+    "R3_braking_slice": "same on the slice where the lead brakes (fewer trajectories, so margin 5 points)",
+    "R4_scenario_grid": "collision area on the cut-in grid that is physically avoidable <= baseline + 2 points (t_react = 0.6 s)",
+    "R5_seed_stability": "collision rate varies by <= 1 point across training seeds",
+    "R6_reactive_world": "collision area with a REACTIVE rear vehicle <= baseline + 2 points",
+    "R7_coverage": "enough scenarios were actually run: >= 100 mined braking events, >= 2000 grid cells"
+  }
+}
